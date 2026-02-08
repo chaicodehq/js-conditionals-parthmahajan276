@@ -33,7 +33,7 @@ export function calculateShipping(weight, country, orderTotal) {
         return -1;
     }
 
-    // 2️⃣ Free shipping rules
+  
     if (country === "US" && orderTotal > 50) {
         return 0;
     }
@@ -42,7 +42,7 @@ export function calculateShipping(weight, country, orderTotal) {
         return 0;
     }
 
-    // 3️⃣ Shipping cost based on country & weight
+
     if (country === "US") {
         if (weight <= 1) {
             return 5;
