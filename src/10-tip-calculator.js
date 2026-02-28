@@ -1,3 +1,5 @@
+
+
 /**
  * 🍽️ TipEasy - Restaurant Tip Calculator
  *
@@ -30,5 +32,57 @@
  * @returns {{ tipPercentage: number, tipAmount: number, totalAmount: number } | null}
  */
 export function calculateTip(billAmount, serviceRating) {
-  // Your code here
+
+
+  if (
+    billAmount <= 0 ||
+    typeof billAmount !== "number" ||
+    typeof serviceRating !== "number" ||
+    !Number.isInteger(serviceRating) ||
+    serviceRating < 1 ||
+    serviceRating > 5
+  ) {
+    return null;
+  }
+
+  let percentage;
+
+  switch (serviceRating) {
+    case 1:
+      percentage = 5;
+      break;
+    case 2:
+      percentage = 10;
+      break;
+    case 3:
+      percentage = 15;
+      break;
+    case 4:
+      percentage = 20;
+      break;
+    case 5:
+      percentage = 25;
+      break;
+  }
+
+  let tipAmount = billAmount * (percentage / 100);
+
+  
+  tipAmount = Math.round(tipAmount * 100) / 100;
+
+  let totalAmount = Math.round((billAmount + tipAmount) * 100) / 100;
+
+  return {
+    tipPercentage: percentage,
+    tipAmount,
+    totalAmount
+  };
 }
+
+
+
+
+
+
+
+

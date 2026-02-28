@@ -32,17 +32,17 @@ export function calculateTax(income) {
 
   if (income > 70000) {
     tax += (income - 70000) * 0.30;
-    income=70000
+    income=70000;
   }
 
   if (income > 30000) {
     tax += (income - 30000) * 0.20;
-    income=30000
+    income=30000;
   }
 
   if (income > 10000) {
     tax += (income - 10000) * 0.10;
-    income=10000
+    income=10000;
   }
 
   return tax;
